@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Tech | Grade 9 Project</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           COQUETTE-INSPIRED FUTURISTIC THEME
+           ========================================== */
+        :root {
+            --primary-purple: #9333ea;
+            --lavender: #d8b4fe;
+            --pastel-purple: #f3e8ff;
+            --soft-lilac: #ede9fe;
+            --blush-pink: #fbcfe8;
+            --cream: #fdf4f8;
+            --silver: #cbd5e1;
+            --text-dark: #3b0764;
+            --text-muted: #6b21a8;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(147, 51, 234, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(216, 180, 254, 0.2);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo .dot {
+            color: var(--blush-pink);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-purple);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+            background: radial-gradient(circle at top right, var(--pastel-purple), transparent 60%);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--blush-pink);
+            color: var(--text-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(251, 207, 232, 0.5);
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--primary-purple), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-purple), #d946ef);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(147, 51, 234, 0.4);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-purple);
+            border: 2px solid var(--lavender);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .c1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .c2 { top: 50%; right: 10%; animation-delay: 1.5s; }
+        .c3 { bottom: 10%; left: 30%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- SECTION HEADINGS --- */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--soft-lilac);
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--lavender);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        /* --- TECHNOLOGIES SECTION --- */
+        .tech-section {
+            background: linear-gradient(to bottom, var(--cream), var(--pastel-purple));
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--soft-lilac);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(147, 51, 234, 0.2);
+        }
+
+        .tech-img-placeholder {
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+        }
+
+        .ai-bg { background: linear-gradient(135deg, #e9d5ff, #fbcfe8); }
+        .robot-bg { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+        .vr-bg { background: linear-gradient(135deg, #fbcfe8, #fbcfe8); }
+        .trans-bg { background: linear-gradient(135deg, #d8b4fe, #c084fc); }
+        .city-bg { background: linear-gradient(135deg, #e0e7ff, #ede9fe); }
+        .space-bg { background: linear-gradient(135deg, #c084fc, #9333ea); color: white; }
+        .med-bg { background: linear-gradient(135deg, #f5d0fe, #fbcfe8); }
+
+        .tech-content {
+            padding: 2rem;
+        }
+
+        .tech-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .simple-exp {
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .tech-details {
+            font-size: 0.9rem;
+            color: #4b5563;
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        /* --- ADVANTAGES & DISADVANTAGES --- */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .comp-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--soft-lilac);
+            transition: var(--transition);
+        }
+
+        .comp-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comp-card h3 {
+            margin-bottom: 1.2rem;
+            color: var(--primary-purple);
+            font-size: 1.4rem;
+        }
+
+        .pro {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #166534;
+        }
+
+        .con {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #991b1b;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-section {
+            background: linear-gradient(to top, var(--cream), var(--pastel-purple));
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            padding-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-box {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .g1 { background: linear-gradient(135deg, #a855f7, #ec4899); }
+        .g2 { background: linear-gradient(135deg, #6366f1, #a855f7); }
+        .g3 { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+        .g4 { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+        .g5 { background: linear-gradient(135deg, #8b5cf6, #d946ef); }
+        .g6 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+
+        .gallery-item p {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- QUIZ SECTION --- */
+        .quiz-section {
+            background: var(--white);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--lavender);
+        }
+
+        .quiz-question {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: var(--white);
+            border: 2px solid var(--lavender);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .quiz-option:hover:not(:disabled) {
+            background: var(--pastel-purple);
+            border-color: var(--primary-purple);
+        }
+
+        .quiz-option.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #166534 !important;
+        }
+
+        .quiz-option.incorrect {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #991b1b !important;
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .quiz-result {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 7rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-visual {
+                width: 100%;
+                height: 250px;
+            }
+
+            .quiz-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="bow-icon">🎀</span> FutureTech<span class="dot">.</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#pros-cons">Pros & Cons</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge">✨ Grade 9 Educational Showcase</div>
+            <h1>Welcome to the World of <span>Future Technology</span></h1>
+            <p>Step into tomorrow! Explore how science fiction is becoming our everyday reality through artificial intelligence, space travel, smart cities, and dreamy innovations.</p>
+            <a href="#technologies" class="cta-button">Explore Technologies 🌸</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card c1">🤖 Smart AI</div>
+            <div class="floating-card c2">🚀 Space Age</div>
+            <div class="floating-card c3">💖 Neo-Coquette</div>
+        </div>
+    </section>
+
+    <!-- ABOUT FUTURE TECHNOLOGY SECTION -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Future Technology</h2>
+            <p class="section-subtitle">What lies ahead in our digital universe?</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">💡</div>
+                    <h3>What It Means</h3>
+                    <p>Future technology refers to advanced scientific breakthroughs, inventions, and digital tools that are currently being developed or are expected to shape human civilization in the coming decades.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">⭐</div>
+                    <h3>Why It Matters</h3>
+                    <p>It helps solve global challenges like climate change, cures diseases more effectively, expands our cosmic horizons, and transforms how we learn, work, and communicate every single day.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🌷</div>
+                    <h3>Everyday Life Impact</h3>
+                    <p>From automated morning routines in smart homes to AI-powered personalized study tutors, future tech makes daily life safer, more efficient, and deeply interconnected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUTURE TECHNOLOGIES SECTION -->
+    <section id="technologies" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Key Future Technologies</h2>
+            <p class="section-subtitle">Discover the innovations reshaping our world</p>
+
+            <div class="tech-grid">
+                <!-- 1. AI -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder ai-bg">🧠</div>
+                    <div class="tech-content">
+                        <h3>Artificial Intelligence (AI)</h3>
+                        <p class="simple-exp">Computers and machines programmed to think, learn, and solve problems like humans.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> Virtual assistants (Siri, Alexa), generative language models, automated translators.<br>
+                            <strong>Real-World:</strong> Diagnosing medical scans early, predicting weather patterns, and personalized online learning.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Robotics & Automation -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder robot-bg">🤖</div>
+                    <div class="tech-content">
+                        <h3>Robotics & Automation</h3>
+                        <p class="simple-exp">Programmable machines capable of carrying out complex physical tasks automatically.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> Industrial assembly robots, robotic arms for delicate surgery, robotic vacuum cleaners.<br>
+                            <strong>Real-World:</strong> Manufacturing cars with precision, robotic prosthetic limbs, and warehouse sorting.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. VR & AR -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder vr-bg">🥽</div>
+                    <div class="tech-content">
+                        <h3>Virtual & Augmented Reality</h3>
+                        <p class="simple-exp">VR immerses you in digital 3D worlds; AR overlays digital info onto the real world.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> VR headsets, AR shopping apps, interactive holographic school lessons.<br>
+                            <strong>Real-World:</strong> Training pilots and surgeons safely in simulation, exploring ancient Rome via AR guides.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Future Transportation -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder trans-bg">🛸</div>
+                    <div class="tech-content">
+                        <h3>Future Transportation</h3>
+                        <p class="simple-exp">High-speed, eco-friendly, and autonomous travel systems minimizing traffic and pollution.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> Self-driving electric cars, hyperloop trains, electric flying taxis (eVTOL).<br>
+                            <strong>Real-World:</strong> Reducing carbon footprints in major cities and cutting cross-country travel times drastically.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Smart Homes & Smart Cities -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder city-bg">🏙️</div>
+                    <div class="tech-content">
+                        <h3>Smart Homes & Cities</h3>
+                        <p class="simple-exp">Connected IoT (Internet of Things) devices managing energy, security, and urban resources.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> Smart thermostats, automated solar lighting, intelligent traffic signals.<br>
+                            <strong>Real-World:</strong> Lowering electricity bills, conserving water, and creating zero-emission urban hubs.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Space Exploration -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder space-bg">🚀</div>
+                    <div class="tech-content">
+                        <h3>Space Exploration</h3>
+                        <p class="simple-exp">Advanced rockets, space telescopes, and rovers unlocking the mysteries of the universe.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> Reusable SpaceX rockets, James Webb Space Telescope, Mars rovers.<br>
+                            <strong>Real-World:</strong> Searching for exoplanets, studying deep space origins, and planning lunar colonies.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Future Medical Technology -->
+                <div class="tech-card">
+                    <div class="tech-img-placeholder med-bg">🧬</div>
+                    <div class="tech-content">
+                        <h3>Future Medical Technology</h3>
+                        <p class="simple-exp">Cutting-edge bioengineering, gene editing, and nanomedicine to extend human health.</p>
+                        <div class="tech-details">
+                            <strong>Examples:</strong> CRISPR gene editing, 3D bio-printed organs, personalized cancer treatments.<br>
+                            <strong>Real-World:</strong> Eradicating genetic disorders, curing complex diseases, and healing injuries faster.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES AND DISADVANTAGES SECTION -->
+    <section id="pros-cons" class="pros-cons-section">
+        <div class="container">
+            <h2 class="section-title">Advantages & Disadvantages</h2>
+            <p class="section-subtitle">Weighing the bright side and challenges of tomorrow's technology</p>
+
+            <div class="comparison-grid">
+                <!-- Education -->
+                <div class="comp-card">
+                    <h3>📚 Education</h3>
+                    <div class="pro"><strong>Pros:</strong> Access to boundless digital libraries, interactive VR historical field trips, and AI tutoring support.</div>
+                    <div class="con"><strong>Cons:</strong> Risk of screen fatigue, unequal access to devices, and distraction from social media.</div>
+                </div>
+
+                <!-- Healthcare -->
+                <div class="comp-card">
+                    <h3>🩺 Healthcare</h3>
+                    <div class="pro"><strong>Pros:</strong> Faster disease detection, telemedicine consultations, and advanced prosthetic recovery.</div>
+                    <div class="con"><strong>Cons:</strong> High costs for cutting-edge treatments and data privacy concerns regarding patient health records.</div>
+                </div>
+
+                <!-- Communication -->
+                <div class="comp-card">
+                    <h3>💬 Communication</h3>
+                    <div class="pro"><strong>Pros:</strong> Instant global video calls, real-time AI translation across languages, and strong online communities.</div>
+                    <div class="con"><strong>Cons:</strong> Reduced face-to-face social skills and vulnerability to cyberbullying and online misinformation.</div>
+                </div>
+
+                <!-- Employment -->
+                <div class="comp-card">
+                    <h3>💼 Employment</h3>
+                    <div class="pro"><strong>Pros:</strong> Creation of exciting new tech careers (AI engineers, space pilots) and automation of dangerous labor.</div>
+                    <div class="con"><strong>Cons:</strong> Job displacement as routine manual and administrative tasks are taken over by robots and software.</div>
+                </div>
+
+                <!-- Environment -->
+                <div class="comp-card">
+                    <h3>🌱 Environment</h3>
+                    <div class="pro"><strong>Pros:</strong> Electric vehicles, smart energy grids reducing waste, and climate modeling satellites.</div>
+                    <div class="con"><strong>Cons:</strong> Electronic waste (e-waste) disposal problems and high energy consumption by data centers.</div>
+                </div>
+
+                <!-- Society -->
+                <div class="comp-card">
+                    <h3>🌍 Society</h3>
+                    <div class="pro"><strong>Pros:</strong> Improved public safety, smart urban living, and greater accessibility for differently-abled individuals.</div>
+                    <div class="con"><strong>Cons:</strong> Surveillance privacy debates and digital addiction impacting mental well-being.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Futuristic Gallery</h2>
+            <p class="section-subtitle">A visual glimpse into tomorrow's aesthetics</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-box g1">🤖 AI Companion Robot</div>
+                    <p>Next-gen assistive androids</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-box g2">🏙️ Neo-Tokyo Smart City</div>
+                    <p>Eco-friendly vertical forests & flying transit</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-box g3">🚀 Deep Space Colony</div>
+                    <p>Habitats on Mars and lunar bases</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-box g4">🧬 Bio-Tech Lab</div>
+                    <p>Genomic editing and artificial organs</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-box g5">🥽 Holographic Interface</div>
+                    <p>Gesture-controlled spatial computing</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-box g6">🛸 Hyperloop Express</div>
+                    <p>Vacuum-sealed high-speed transit pods</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE QUIZ SECTION -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Future Tech Knowledge Quiz</h2>
+            <p class="section-subtitle">Test what you've learned! (10 Questions)</p>
+
+            <div class="quiz-container" id="quizContainer">
+                <div id="quizQuestionBox">
+                    <!-- Questions will be injected here via JavaScript -->
+                </div>
+                <div class="quiz-controls">
+                    <button id="nextBtn" class="cta-button" style="display: none;">Next Question 🌸</button>
+                </div>
+                <div id="quizResult" class="quiz-result" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>🎀 Future Technology Educational Website • Grade 9 Project Presentation 🎀</p>
+            <p>Created with love, lavender, and innovation.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ==========================================
+        // MOBILE NAVIGATION TOGGLE
+        // ==========================================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+
+        // ==========================================
+        // INTERACTIVE QUIZ DATA & LOGIC (10 Questions)
+        // ==========================================
+        const quizData = [
+            {
+                question: "1. What does 'AI' stand for in future technology?",
+                options: ["Automated Internet", "Artificial Intelligence", "Advanced Interaction", "Auto Interface"],
+                correct: 1
+            },
+            {
+                question: "2. Which technology overlays digital images and 3D info onto the real world?",
+                options: ["Virtual Reality (VR)", "Augmented Reality (AR)", "Cloud Computing", "Fiber Optics"],
+                correct: 1
+            },
+            {
+                question: "3. What is the primary purpose of renewable smart energy grids in smart cities?",
+                options: ["To increase electricity bills", "To reduce waste and carbon footprints", "To make lights blink faster", "To replace computers"],
+                correct: 1
+            },
+            {
+                question: "4. Which cutting-edge technology allows scientists to edit genes and cure hereditary disorders?",
+                options: ["CRISPR", "Bluetooth", "LCD Screens", "GPS Navigation"],
+                correct: 0
+            },
+            {
+                question: "5. What are vehicles that drive themselves without human drivers called?",
+                options: ["Manual cars", "Autonomous/Self-driving vehicles", "Steam engines", "Trolley cars"],
+                correct: 1
+            },
+            {
+                question: "6. Which space telescope was launched to peer deep into the early universe and discover exoplanets?",
+                options: ["Hubble Telescope", "James Webb Space Telescope", "Galileo Scope", "Newton Refractor"],
+                correct: 1
+            },
+            {
+                question: "7. What does IoT (Internet of Things) refer to in smart homes?",
+                options: ["Everyday objects connected to the internet to send/receive data", "Internet of toys", "Inside only technology", "Instant online transmission"],
+                correct: 0
+            },
+            {
+                question: "8. What is a major advantage of virtual field trips in education?",
+                options: ["Students never have to do homework", "Students can explore distant historical sites or planets safely from class", "Books become illegal", "Schools close down completely"],
+                correct: 1
+            },
+            {
+                question: "9. Which of the following is a potential disadvantage of future automation and robotics?",
+                options: ["Faster production speeds", "Job displacement in routine manual tasks", "Cleaner air quality", "Better medical diagnoses"],
+                correct: 1
+            },
+            {
+                question: "10. What is a hyperloop?",
+                options: ["A circular roller coaster", "A high-speed transit pod traveling through low-pressure vacuum tubes", "A Wi-Fi router", "A satellite orbiting Mars"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        const questionBox = document.getElementById('quizQuestionBox');
+        const nextBtn = document.getElementById('nextBtn');
+        const quizResult = document.getElementById('quizResult');
+
+        function loadQuiz() {
+            answered = false;
+            nextBtn.style.display = 'none';
+            
+            if (currentQuestionIndex < quizData.length) {
+                const currentQ = quizData[currentQuestionIndex];
+                
+                let optionsHTML = '';
+                currentQ.options.forEach((option, index) => {
+                    optionsHTML += `<button class="quiz-option" onclick="checkAnswer(${index})">${option}</button>`;
+                });
+
+                questionBox.innerHTML = `
+                    <div class="quiz-question">${currentQ.question}</div>
+                    <div class="quiz-options">${optionsHTML}</div>
+                    <div id="feedback" class="quiz-feedback"></div>
+                `;
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (answered) return;
+            answered = true;
+
+            const currentQ = quizData[currentQuestionIndex];
+            const optionButtons = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('feedback');
+
+            if (selectedIndex === currentQ.correct) {
+                optionButtons[selectedIndex].classList.add('correct');
+                feedback.innerHTML = "✨ Correct! Great job!";
+                feedback.style.color = "#166534";
+                score++;
+            } else {
+                optionButtons[selectedIndex].classList.add('incorrect');
+                optionButtons[currentQ.correct].classList.add('correct');
+                feedback.innerHTML = `❌ Incorrect. The correct answer was: <strong>${currentQ.options[currentQ.correct]}</strong>`;
+                feedback.style.color = "#991b1b";
+            }
+
+            // Disable all options after clicking
+            optionButtons.forEach(btn => btn.disabled = true);
+
+            // Show next button or finish
+            if (currentQuestionIndex < quizData.length - 1) {
+                nextBtn.innerText = "Next Question 🌸";
+                nextBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.innerText = "View Final Score 💖";
+                nextBtn.style.display = 'inline-block';
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            loadQuiz();
+        });
+
+        function showFinalScore() {
+            questionBox.innerHTML = "";
+            nextBtn.style.display = 'none';
+            quizResult.style.display = 'block';
+
+            let message = "";
+            if (score === 10) {
+                message = "🌟 Perfect Score! You're a true Future Tech Expert! 🌟";
+            } else if (score >= 7) {
+                message = "🌸 Fantastic job! You know a lot about tomorrow's technology! 🌸";
+            } else if (score >= 4) {
+                message = "💡 Good effort! Review the sections above to learn even more! 💡";
+            } else {
+                message = "🌱 Keep exploring! Dive back into the tech cards and try again! 🌱";
+            }
+
+            quizResult.innerHTML = `
+                <h3>Quiz Completed!</h3>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">Your Score: <strong>${score} / ${quizData.length}</strong></p>
+                <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem;">${message}</p>
+                <button class="cta-button" onclick="restartQuiz()">Restart Quiz 🔄</button>
+            `;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            quizResult.style.display = 'none';
+            loadQuiz();
+        }
+
+        // Initialize Quiz on load
+        loadQuiz();
+    </script>
+</body>
+</html>
